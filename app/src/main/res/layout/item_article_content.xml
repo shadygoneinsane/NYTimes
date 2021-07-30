@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.assignment.ui.main.MainViewModel.NewsItemsExtended" />
+
+        <variable
+            name="listener"
+            type="com.assignment.ui.interfaces.OnOptionClickListener" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:onClick="@{() -> listener.onOptionClick(item)}">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/item_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            app:glideUrl="@{item.mediaUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageView.Rounded" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="@{item.title}"
+            app:layout_constraintBottom_toTopOf="@+id/item_des"
+            app:layout_constraintEnd_toStartOf="@+id/right_arrow"
+            app:layout_constraintStart_toEndOf="@id/item_image"
+            app:layout_constraintTop_toTopOf="@id/item_image"
+            tools:text="Test Title" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_des"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="@{item.byline}"
+            app:layout_constraintBottom_toBottomOf="@+id/item_image"
+            app:layout_constraintEnd_toEndOf="@+id/item_title"
+            app:layout_constraintStart_toStartOf="@+id/item_title"
+            app:layout_constraintTop_toBottomOf="@+id/item_title"
+            tools:text="Sub Text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/item_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:drawableStart="@android:drawable/ic_menu_my_calendar"
+            app:layout_constraintEnd_toEndOf="@+id/item_des"
+            app:layout_constraintEnd_toStartOf="@+id/right_arrow"
+            app:layout_constraintTop_toBottomOf="@+id/item_des"
+            android:text="@{item.publishedDate}"
+            tools:text="10.11.2021" />
+
+        <ImageView
+            android:id="@+id/right_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_right" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

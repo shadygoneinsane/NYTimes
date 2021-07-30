@@ -1,0 +1,18 @@
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
+
+    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
+    androidTestImplementation "androidx.test:rules:$testXRulesVersion"
+    androidTestImplementation "android.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebserverVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+
+    testImplementation "androidx.test.ext:junit:$junitExtVersion"
+    testImplementation "android.arch.core:core-testing:$coreTestingVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebserverVersion"
+    testImplementation "io.mockk:mockk:$mockVersion"
+}
