@@ -3,4 +3,6 @@
 
     <string name="title_error">Error</string>
     <string name="action_ok">OK</string>
+    <string name="title_main">NY Times Most Popular</string>
+    <string name="something_went_wrong">Something went wrong.. Please try again later !!</string>
 </resources>

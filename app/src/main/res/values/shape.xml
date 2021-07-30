@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="ImageView.Rounded" parent="">
+        <item name="android:layout_width">@dimen/img_size</item>
+        <item name="android:layout_height">@dimen/img_size</item>
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">25dp</item>
+        <item name="cornerSize">@dimen/img_corner_radius</item>
     </style>
 </resources>

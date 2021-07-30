@@ -16,19 +16,28 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_weather"
-            android:layout_width="0dp"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            app:isVisible="@{!viewModel.showErrorView}"
-            app:itemBinding="@{viewModel.accessoryBinding}"
-            app:items="@{viewModel.list}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:colorScheme="@{@color/purple_700}"
+            app:hideRefresh="@{viewModel.shouldHideRefresh}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_article_content" />
+            app:swipeListener="@{()->viewModel.swipeRefreshEvent()}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_news_items"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:isVisible="@{!viewModel.showErrorView}"
+                app:itemBinding="@{viewModel.accessoryBinding}"
+                app:items="@{viewModel.list}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_article_content" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

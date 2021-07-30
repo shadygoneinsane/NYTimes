@@ -22,40 +22,49 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(private val dataRepository: NewsRepository) :
     BaseViewModel() {
-    val clickEvent = SingleLiveEvent<String>()
+    private val clickEvent = SingleLiveEvent<NewsItemsExtended>()
     private val showErrorView = MutableLiveData<Boolean>()
-
-    fun getShowErrorView(): MutableLiveData<Boolean> {
-        return showErrorView
-    }
-
+    private var shouldHideRefresh = SingleLiveEvent<Boolean>()
     private var newsList = ObservableArrayList<NewsItemsExtended>()
+    private var isSwipeToRefresh: Boolean = false
 
-    fun getList(): ObservableArrayList<NewsItemsExtended> {
-        return newsList
+    fun getShowErrorView(): MutableLiveData<Boolean> = showErrorView
+
+    fun getList(): ObservableArrayList<NewsItemsExtended> = newsList
+
+    fun getItemClick() = clickEvent
+
+    fun getShouldHideRefresh() = shouldHideRefresh
+
+    /**
+     * Method to be invoked on Swipe to refresh
+     */
+    fun swipeRefreshEvent() {
+        isSwipeToRefresh = true
+        fetchNews(false)
     }
 
-    fun fetchNews() {
-        showLoading(true)
+    fun fetchNews(showLoading: Boolean) {
+        showLoading(showLoading)
         viewModelScope.launch {
             dataRepository.fetchMostViewedNews(BuildConfig.APP_ID, 1)
                 .collect { state ->
                     when (state) {
                         is ResultState.Success -> {
-                            showLoading(false)
                             prepareNewsList(state.data.results)
                         }
                         is ResultState.Error -> {
                             setError(error = state.error)
-                            showLoading(false)
                         }
                     }
+                    showLoading(false)
+                    shouldHideRefresh.value = true
                 }
         }
     }
 
     /**
-     * The Single item.
+     * The binding item for recyclerview.
      */
     val accessoryBinding: OnItemBindClass<NewsItemsExtended> by lazy {
         OnItemBindClass<NewsItemsExtended>()
@@ -68,7 +77,7 @@ class MainViewModel @Inject constructor(private val dataRepository: NewsReposito
                         object : OnOptionClickListener<NewsItemsExtended> {
                             override fun onOptionClick(option: NewsItemsExtended) {
                                 Timber.d("Title clicked : ${option.title}")
-                                clickEvent.value = option.url
+                                clickEvent.value = option
                             }
                         } as OnOptionClickListener<NewsItemsExtended>)
             }
@@ -76,7 +85,7 @@ class MainViewModel @Inject constructor(private val dataRepository: NewsReposito
 
     /**
      * Prepares the newslist observable for rendering
-     * @param newsListResponse: NewsListResponse
+     * @param newsListResponse: List<NYEntity.NewsResult>
      */
     private fun prepareNewsList(newsListResponse: List<NYEntity.NewsResult>) {
         val items = mutableListOf<NewsItemsExtended>()

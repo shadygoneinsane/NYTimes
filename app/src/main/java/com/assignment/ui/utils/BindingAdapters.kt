@@ -6,8 +6,10 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 
@@ -59,4 +61,19 @@ fun WebView.setWebViewClient(client: WebViewClient) {
 @BindingAdapter("loadUrl")
 fun WebView.loadUrl(url: String?) {
     url?.let { loadUrl(it) }
+}
+
+@BindingAdapter("swipeListener", "colorScheme", "hideRefresh", requireAll = false)
+fun SwipeRefreshLayout.swipeRefreshListener(
+    listener: SwipeRefreshLayout.OnRefreshListener?,
+    @ColorRes color: Int?,
+    refresh: Boolean?
+) {
+    refresh?.let {
+        if (it) {
+            isRefreshing = !it
+        }
+    }
+    listener?.let { setOnRefreshListener(listener) }
+    color?.let { setColorSchemeColors(it) }
 }

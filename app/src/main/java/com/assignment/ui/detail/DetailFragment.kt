@@ -14,10 +14,21 @@ class DetailFragment :
 
     override val bindingVariable: Int = BR.viewModel
 
+    private val url: String? by lazy {
+        arguments?.let { DetailFragmentArgs.fromBundle(it).url }
+    }
+
+    private val title: String? by lazy {
+        arguments?.let { DetailFragmentArgs.fromBundle(it).title }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            viewModel.setUrl(DetailFragmentArgs.fromBundle(it).url)
-        }
+        url?.let {
+            viewModel.showLoading(true)
+            viewModel.setUrl(it)
+        } ?: showErrorDialog(getString(R.string.something_went_wrong))
+
+        setToolbarTitle(title ?: getString(R.string.title_main))
     }
 }

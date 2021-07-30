@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.assignment.R
-import com.assignment.domain.entity.response.common.ErrorEntity
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -39,6 +39,10 @@ abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel>(@LayoutRes v
         dataBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         dataBinding.lifecycleOwner = this
         return dataBinding.root
+    }
+
+    protected fun setToolbarTitle(title : String){
+        (activity as? AppCompatActivity)?.supportActionBar?.title = title
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -91,7 +95,7 @@ abstract class BaseFragment<D : ViewDataBinding, V : BaseViewModel>(@LayoutRes v
     /**
      * Method to show service related error messages
      */
-    private fun showErrorDialog(message: String?) {
+    protected fun showErrorDialog(message: String?) {
         val alertDialog = AlertDialog.Builder(activity)
             .setTitle(requireActivity().getString(R.string.title_error))
             .setMessage(message)
