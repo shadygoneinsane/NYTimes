@@ -88,11 +88,9 @@ class MainViewModel @Inject constructor(private val dataRepository: NewsReposito
      * @param newsListResponse: List<NYEntity.NewsResult>
      */
     private fun prepareNewsList(newsListResponse: List<NYEntity.NewsResult>) {
-        val items = mutableListOf<NewsItemsExtended>()
         for (newsItem in newsListResponse) {
-            items.add(NewsItemsExtended(newsItem))
+            newsList.add(NewsItemsExtended(newsItem))
         }
-        newsList.addAll(items)
     }
 
     inner class NewsItemsExtended(newsEntity: NYEntity.NewsResult) : NYEntity.NewsResult(

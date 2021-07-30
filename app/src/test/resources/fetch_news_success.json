@@ -1,0 +1,129 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company.  All Rights Reserved.",
+  "num_results": 20,
+  "results": [
+    {
+      "uri": "nyt://article/e47c652f-8b1c-5f07-ab62-1b915e3fa140",
+      "url": "https://www.nytimes.com/2021/07/29/health/cdc-masks-vaccinated-transmission.html",
+      "id": 100000007890517,
+      "asset_id": 100000007890517,
+      "source": "New York Times",
+      "published_date": "2021-07-29",
+      "updated": "2021-07-30 13:17:41",
+      "section": "Health",
+      "subsection": "",
+      "nytdsection": "health",
+      "adx_keywords": "Coronavirus (2019-nCoV);Vaccination and Immunization;Coronavirus Risks and Safety Concerns;Disease Rates;your-feed-science;Walensky, Rochelle;Centers for Disease Control and Prevention;United States",
+      "column": null,
+      "byline": "By Apoorva Mandavilli",
+      "type": "Article",
+      "title": "Behind the Masks, a Mystery: How Often Do the Vaccinated Spread the Virus?",
+      "abstract": "The C.D.C.’s new masking advice was based in part on data showing that the virus can thrive in the airways of vaccinated people. The findings are expected on Friday.",
+      "des_facet": [
+        "Coronavirus (2019-nCoV)",
+        "Vaccination and Immunization",
+        "Coronavirus Risks and Safety Concerns",
+        "Disease Rates",
+        "your-feed-science"
+      ],
+      "org_facet": [
+        "Centers for Disease Control and Prevention"
+      ],
+      "per_facet": [
+        "Walensky, Rochelle"
+      ],
+      "geo_facet": [
+        "United States"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "A salon in Los Angeles this week, where indoor mask mandates were reinstated on July 15.",
+          "copyright": "Alex Welsh for The New York Times",
+          "approved_for_syndication": 1,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/science/29virus-transmit1/29virus-transmit1-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/science/29virus-transmit1/29virus-transmit1-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/science/29virus-transmit1/29virus-transmit1-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    },
+    {
+      "uri": "nyt://article/19c3315b-aebf-5814-9593-ef0d7a3ba6fa",
+      "url": "https://www.nytimes.com/2021/07/29/us/alaska-earthquake-tsunami-warning.html",
+      "id": 100000007892526,
+      "asset_id": 100000007892526,
+      "source": "New York Times",
+      "published_date": "2021-07-29",
+      "updated": "2021-07-30 10:16:21",
+      "section": "U.S.",
+      "subsection": "",
+      "nytdsection": "u.s.",
+      "adx_keywords": "Earthquakes;Tidal Waves and Tsunamis;Alaska;Aleutian Islands",
+      "column": null,
+      "byline": "By Derrick Bryson Taylor and Christine Hauser",
+      "type": "Article",
+      "title": "8.2-Magnitude Earthquake Strikes Off Alaskan Coast",
+      "abstract": "A tsunami warning was lifted a few hours after the powerful quake was detected.",
+      "des_facet": [
+        "Earthquakes",
+        "Tidal Waves and Tsunamis"
+      ],
+      "org_facet": [],
+      "per_facet": [],
+      "geo_facet": [
+        "Alaska",
+        "Aleutian Islands"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "subtype": "photo",
+          "caption": "A black star indicates the epicenter of a powerful earthquake off Alaska late Wednesday.",
+          "copyright": "United States Geological Survey",
+          "approved_for_syndication": 0,
+          "media-metadata": [
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/world/29xp-tsunami/29xp-tsunami-thumbStandard.jpg",
+              "format": "Standard Thumbnail",
+              "height": 75,
+              "width": 75
+            },
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/world/29xp-tsunami/29xp-tsunami-mediumThreeByTwo210.jpg",
+              "format": "mediumThreeByTwo210",
+              "height": 140,
+              "width": 210
+            },
+            {
+              "url": "https://static01.nyt.com/images/2021/07/29/world/29xp-tsunami/29xp-tsunami-mediumThreeByTwo440.jpg",
+              "format": "mediumThreeByTwo440",
+              "height": 293,
+              "width": 440
+            }
+          ]
+        }
+      ],
+      "eta_id": 0
+    }
+  ]
+}

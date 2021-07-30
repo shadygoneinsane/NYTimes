@@ -3,6 +3,33 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'jacoco'
+}
+
+jacoco {
+    toolVersion = "0.8.1"
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "$project.buildDir/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "$project.projectDir/src/main/java"
+
+    sourceDirectories.from(files([mainSrc]))
+    classDirectories.from(files([debugTree]))
+    executionData.from(fileTree(dir: project.buildDir, includes: [
+            'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec'
+    ]))
 }
 
 apply from: "$rootProject.projectDir/commons.gradle"
@@ -48,6 +75,9 @@ android {
     buildFeatures {
         dataBinding true
     }
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
 }
 
 dependencies {
@@ -80,6 +110,11 @@ dependencies {
     // Data-binding collection adapter
     implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0"
     implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0"
+
+    //Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
