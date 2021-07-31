@@ -17,8 +17,8 @@ A Simple application which uses the [NY Times Most popular Articles API][NYTimes
 * SOLID design principles are followed which separates the app into three modules `app`, `domain` and `data` to make the design more understandable, flexible and maintainable in terms of product sustainability.
 
 ##Screen Shots
-<img src="https://github.com/shadygoneinsane/NYTimes/blob/master/screenshots/master.png" alt="Master Screen"/>
-<img src="https://github.com/shadygoneinsane/NYTimes/blob/master/screenshots/detail.png" alt="Detail Screen"/>
+<img src="https://github.com/shadygoneinsane/NYTimes/blob/main/screenshots/master.png" alt="Master Screen"/>
+<img src="https://github.com/shadygoneinsane/NYTimes/blob/main/screenshots/detail.png" alt="Detail Screen"/>
 
 ##Build
 On Terminal use the below command for generating debug build:
