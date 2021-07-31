@@ -87,7 +87,7 @@ class MainViewModel @Inject constructor(private val dataRepository: NewsReposito
      * Prepares the newslist observable for rendering
      * @param newsListResponse: List<NYEntity.NewsResult>
      */
-    private fun prepareNewsList(newsListResponse: List<NYEntity.NewsResult>) {
+    fun prepareNewsList(newsListResponse: List<NYEntity.NewsResult>) {
         for (newsItem in newsListResponse) {
             newsList.add(NewsItemsExtended(newsItem))
         }
