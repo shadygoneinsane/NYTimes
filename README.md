@@ -16,15 +16,17 @@ A Simple application which uses the [NY Times Most popular Articles API][NYTimes
 * Model-View-ViewModel (MVVM) for separation of development of user interface and its flow of data models.
 * SOLID design principles are followed which separates the app into three modules `app`, `domain` and `data` to make the design more understandable, flexible and maintainable in terms of product sustainability.
 
-##Screen Shots
+## Screen Shots
 <img src="https://github.com/shadygoneinsane/NYTimes/blob/main/screenshots/master.png" alt="Master Screen"/>
 <img src="https://github.com/shadygoneinsane/NYTimes/blob/main/screenshots/detail.png" alt="Detail Screen"/>
 
-##Build
-On Terminal use the below command for generating debug build:
+## Build
+On Terminal use the below command for generating debug build: <br/>
+
 ```./gradlew assembleDebug```
 
-On Terminal use the below command for generating release build:
+On Terminal use the below command for generating release build: <br/>
+
 ``` ./gradlew assembleRelease ```
 
 ### Tech Stack used
